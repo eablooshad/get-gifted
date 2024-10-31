@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Recommendation Search</title>
+</head>
+<body>
+    <h2>Gift Recommendation Search</h2>
+    <form method="POST" action="/recommend">
+        
+        <!-- Age Input -->
+        <label for="age">Enter Age Range:</label>
+        <input type="text" name="age" placeholder="e.g., 6" required>
+
+        <!-- Keyword Checkboxes -->
+        <div>
+            <h3>Select Keywords:</h3>
+            {% for keyword in keywords %}
+                <input type="checkbox" name="keywords" value="{{ keyword }}"> {{ keyword }}<br>
+            {% endfor %}
+        </div>
+
+        <!-- Category Checkboxes -->
+        <div>
+            <h3>Select Categories:</h3>
+            {% for category in categories %}
+                <input type="checkbox" name="categories" value="{{ category }}"> {{ category }}<br>
+            {% endfor %}
+        </div>
+
+        <button type="submit">Get Recommendations</button>
+    </form>
+</body>
+</html>

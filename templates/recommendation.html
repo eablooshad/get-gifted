@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Recommendations</title>
+</head>
+<body>
+    <h2>Select Categories and Keywords</h2>
+    <form method="POST" action="/recommend">
+        <h3>Categories</h3>
+        {% for category in categories %}
+            <input type="checkbox" name="selected_categories" value="{{ category }}"> {{ category }}<br>
+        {% endfor %}
+        
+        <h3>Keywords</h3>
+        {% for keyword in keywords %}
+            <input type="checkbox" name="selected_keywords" value="{{ keyword }}"> {{ keyword }}<br>
+        {% endfor %}
+        
+        <button type="submit">Get Recommendations</button>
+    </form>
+</body>
+</html>

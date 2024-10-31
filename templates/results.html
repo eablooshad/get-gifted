@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recommended Products</title>
+</head>
+<body>
+    <h2>Recommended Products</h2>
+    {% if recommendations.empty %}
+        <p>No products found for the selected categories and keywords.</p>
+    {% else %}
+        <ul>
+        {% for index, product in recommendations.iterrows() %}
+            <li>
+                <strong>{{ product['Product Name'] }}</strong> - {{ product['Price (USD)'] }}<br>
+                {{ product['Description'] }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    <a href="/recommend">Go back</a>
+</body>
+</html>
